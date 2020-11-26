@@ -108,4 +108,30 @@ body {
 .post-tags p {
   margin: 0 10px 0 0;
 }
+
+/* Sidebar tags */
+.tag-size-1 {
+  font-size: 80%;
+}
+
+.tag-size-2 {
+  font-size: 100%;
+}
+
+.tag-size-3 {
+  font-size: 130%;
+}
+
+.tag-size-4 {
+  font-size: 150%;
+}
+
+.tag-size-5 {
+  font-size: 200%;
+}
+
+.tags li {
+  display: inline-block;
+  padding-right: 5px;
+}
 /*# sourceMappingURL=style.css.map */
