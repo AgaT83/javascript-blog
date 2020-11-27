@@ -1,5 +1,10 @@
 'use strict';
 {
+  const templates = {
+    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+    tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML)
+  };
+
   const titleClickHandler = function(event){
     event.preventDefault();
     const clickedElement = this;
@@ -56,7 +61,8 @@
       const articleTitle = article.querySelector(optTitleSelector).innerHTML;
 
       /* create HTML of the link */
-      const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+      const linkHTMLData = {id: articleId, title: articleTitle};
+      const linkHTML = templates.articleLink(linkHTMLData);
 
       /* insert link into html variable */
       html = html + linkHTML;
@@ -99,7 +105,9 @@
       /* START LOOP: for each tag */
       for(let tagItem of tagsArray){
         /* generate HTML of the link */
-        const linkTagHtml = '<li><a href="#tag-' + tagItem + '"><span>' + tagItem + '</span></a></li>';
+        const linkTagHtmlData = {id: tagItem, title: tagItem};
+        console.log(linkTagHtmlData);
+        const linkTagHtml = templates.tagLink(linkTagHtmlData);
         /* add generated code to html variable */
         html = html + linkTagHtml;
         /* [NEW] check if this link is NOT already in allTags */
